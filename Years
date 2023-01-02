@@ -1,0 +1,141 @@
+#include <iostream>
+#include <math.h>
+using namespace std;
+
+//Користувач вводить дві дати(день, місяць,
+//рік у вигляді цілих чисел).Необхідно визначити і вивести
+//кількість днів між цими двома датами.Для розрахунків
+//враховувати високосні роки, а також коректне число днів
+//у місяцях(березень — 31, вересень — 30, лютий невисокосного року — 28 і т.д.).
+
+void main()
+{
+
+    int choice;
+    cout << "Choose an option (1): " << endl;
+    cin >> choice;
+
+    switch (choice)
+    {
+    case 1:
+    {
+        int day1, month1, year1, day2, month2, year2, Jan, Feb, Mar, Apr, May, Jun, Jul, Aug, Sep, Oct, Nov, Dec;
+
+        int diff, diff_in_years, A, B, Jan2, Feb2, Mar2, Apr2, May2, Jun2, Jul2, Aug2, Sep2, Oct2, Nov2, Dec2;
+
+        cout << "Enter the number of days of the 1st year: " << endl;
+
+        cin >> day1;
+
+        cout << "Enter the number of months of the 1st year: " << endl;
+
+        cin >> month1;
+
+        cout << "Enter the 1st hour: " << endl;
+
+        cin >> year1;
+
+        if (year1 % 400 == 0 || year1 % 4 == 0)
+        {
+            switch (month1)
+            {
+            case 1: {A = Jan = day1; }break;
+            case 2: {A = Feb = day1 + 31; }break;
+            case 3: {A = Mar = day1 + 31 + 29; }break;
+            case 4: {A = Apr = day1 + 31 + 29 + 31; }break;
+            case 5: {A = May = day1 + 31 + 29 + 31 + 30; }break;
+            case 6: {A = Jun = day1 + 31 + 29 + 31 + 30 + 31; }break;
+            case 7: {A = Jul = day1 + 31 + 29 + 31 + 30 + 31 + 30; }break;
+            case 8: {A = Aug = day1 + 31 + 29 + 31 + 30 + 31 + 30 + 31; }break;
+            case 9: {A = Sep = day1 + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31; }break;
+            case 10: {A = Oct = day1 + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 30 + 30; }break;
+            case 11: {A = Nov = day1 + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30; }break;
+            case 12: {A = Dec = day1 + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30 + 31; }break;
+
+            default: cout << "Such a month does not exist!" << endl;
+            }
+        }
+        else if (year1 % 100 != 0)
+        {
+            switch (month1)
+            {
+            case 1: {A = Jan = day1; }break;
+            case 2: {A = Feb = day1 + 31; }break;
+            case 3: {A = Mar = day1 + 31 + 28; }break;
+            case 4: {A = Apr = day1 + 31 + 28 + 31; }break;
+            case 5: {A = May = day1 + 31 + 28 + 31 + 30; }break;
+            case 6: {A = Jun = day1 + 31 + 28 + 31 + 30 + 31; }break;
+            case 7: {A = Jul = day1 + 31 + 28 + 31 + 30 + 31 + 30; }break;
+            case 8: {A = Aug = day1 + 31 + 28 + 31 + 30 + 31 + 30 + 31; }break;
+            case 9: {A = Sep = day1 + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31; }break;
+            case 10: {A = Oct = day1 + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 30; }break;
+            case 11: {A = Nov = day1 + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30; }break;
+            case 12: {A = Dec = day1 + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30 + 31; }break;
+
+            default: cout << "Such a month does not exist!" << endl;
+            }
+        }
+
+        cout << "Enter the number of days of the 2nd year: " << endl;
+
+        cin >> day2;
+
+        cout << "Enter the number of months of the 2nd year: " << endl;
+
+        cin >> month2;
+
+        cout << "Enter the 2nd hour: " << endl;
+
+        cin >> year2;
+
+        if (year1 % 400 == 0 || year1 % 4 == 0)
+        {
+            switch (month2)
+            {
+            case 1: {B = Jan2 = day2; }break;
+            case 2: {B = Feb2 = day2 + 31; }break;
+            case 3: {B = Mar2 = day2 + 31 + 29; }break;
+            case 4: {B = Apr2 = day2 + 31 + 29 + 31; }break;
+            case 5: {B = May2 = day2 + 31 + 29 + 31 + 30; }break;
+            case 6: {B = Jun2 = day2 + 31 + 29 + 31 + 30 + 31; }break;
+            case 7: {B = Jul2 = day2 + 31 + 29 + 31 + 30 + 31 + 30; }break;
+            case 8: {B = Aug2 = day2 + 31 + 29 + 31 + 30 + 31 + 30 + 31; }break;
+            case 9: {B = Sep2 = day2 + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 31; }break;
+            case 10: {B = Oct2 = day2 + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 30 + 30; }break;
+            case 11: {B = Nov2 = day2 + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30; }break;
+            case 12: {B = Dec2 = day2 + 31 + 29 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30 + 31; }break;
+
+            default: cout << "Such a month does not exist!" << endl;
+            }
+        }
+        else if (year1 % 100 != 0)
+        {
+            switch (month2)
+            {
+            case 1: {B = Jan2 = day2; }break;
+            case 2: {B = Feb2 = day2 + 31; }break;
+            case 3: {B = Mar2 = day2 + 31 + 28; }break;
+            case 4: {B = Apr2 = day2 + 31 + 28 + 31; }break;
+            case 5: {B = May2 = day2 + 31 + 28 + 31 + 30; }break;
+            case 6: {B = Jun2 = day2 + 31 + 28 + 31 + 30 + 31; }break;
+            case 7: {B = Jul2 = day2 + 31 + 28 + 31 + 30 + 31 + 30; }break;
+            case 8: {B = Aug2 = day2 + 31 + 28 + 31 + 30 + 31 + 30 + 31; }break;
+            case 9: {B = Sep2 = day2 + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 31; }break;
+            case 10: {B = Oct2 = day2 + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 30; }break;
+            case 11: {B = Nov2 = day2 + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30; }break;
+            case 12: {B = Dec2 = day2 + 31 + 28 + 31 + 30 + 31 + 30 + 31 + 30 + 31 + 30 + 31; }break;
+
+            default: cout << "Such a month does not exist!" << endl;
+            }
+        }
+        diff_in_years = year2 - year1;
+
+        diff = (B - A) + (365 * diff_in_years) + diff_in_years;
+
+        cout << "The difference between the years: " << diff << " days " << endl;
+
+    }break;
+
+    default: cout << "There is no such option!" << endl;
+    }
+}
